@@ -20,7 +20,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -47,8 +46,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Counter(modifier: Modifier = Modifier) {
     var theCounter by remember { mutableStateOf(60L) }
+    // Esta variable guarda el número del contador, empezando en 60.
     var miCounterDown by remember { mutableStateOf(CounterDown(61) { newValue -> theCounter = newValue })}
-
+    // Aquí se crea un contador, Cuando baja, actualiza 'theCounter' con el número.
 
 
 
@@ -85,6 +85,8 @@ fun Counter(modifier: Modifier = Modifier) {
                     theCounter = 60
                 },
                 modifier = Modifier.padding(6.dp)
+
+
             ) {
                 Text(text = "Reiniciar")
             }

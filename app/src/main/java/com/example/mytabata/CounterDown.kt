@@ -5,16 +5,19 @@ import android.os.CountDownTimer
 class CounterDown(var segundos: Int, var loquehacealhacertick: (Long) -> Unit) {
     private var myCounter: CountDownTimer
     var counterState: Boolean = false
-    private var remainingTime: Long = (segundos * 1000L)
+    var tiempoRestante: Long = (segundos * 1000L)
 
     init {
         myCounter = crearCountDownTimer()
     }
 
     fun crearCountDownTimer(): CountDownTimer {
-        return object : CountDownTimer(remainingTime, 1000) {
+        return object : CountDownTimer(tiempoRestante, 1000) {
+            // Se llama cada segundo mientras el temporizador está activo.
             override fun onTick(millisUntilFinished: Long) {
-                remainingTime = millisUntilFinished
+                // Actualiza el tiempo restante.
+                tiempoRestante = millisUntilFinished
+                // Llama a la función para hacer algo con el tiempo restante en segundos.
                 loquehacealhacertick(millisUntilFinished / 1000)
             }
 
@@ -45,6 +48,6 @@ class CounterDown(var segundos: Int, var loquehacealhacertick: (Long) -> Unit) {
     }
 
     fun reset() {
-        remainingTime = (segundos * 1000L)
+        tiempoRestante = (segundos * 1000L)
     }
 }
