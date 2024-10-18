@@ -4,4 +4,6 @@ Este código crea una interfaz simple para un temporizador tabata de cuenta regr
 
 
 este seria el resultado de la apliacion dentro de android:
+
+
 ![image](https://github.com/user-attachments/assets/4b46a09a-f9b8-45e3-a061-4df8a0a808ac)
